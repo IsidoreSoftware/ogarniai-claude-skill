@@ -1,5 +1,22 @@
 # Ogarni.AI API — Endpoint Reference
 
+## Authentication
+
+All endpoints require an API token passed via the `X-API-Key` header:
+
+```
+X-API-Key: oai_YOUR_TOKEN
+```
+
+- **Base URL:** `https://api.ogarni.ai`
+- **Token creation:** app.ogarni.ai > Settings > API Tokens
+- **Token format:** `oai_` prefix + base64url payload + HMAC-SHA256 signature
+- **Scopes:** `read` (read-only), `write` (read+write), `admin` (full access)
+- **Rate limits:** 1,000/hr (read), 2,000/hr (write), 5,000/hr (admin) — check `Retry-After` header on 429
+- **Errors:** JSON with `error`, `message`, `timestamp`, `path`, `requestId` fields
+
+---
+
 ## Purchase Documents
 
 ### GET /api/PurchaseDocuments/my
