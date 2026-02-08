@@ -100,15 +100,27 @@ Common codes: `401` (invalid/expired token), `403` (insufficient scope), `404` (
 
 ## Security Best Practices
 
-1. **Store tokens in env vars** — never hardcode in source
+1. **Store tokens in env vars** — never hardcode in source (use `OGARNIAI_API_TOKEN`)
 2. **Use `read` scope** unless write access is needed
 3. **Rotate tokens** every 90 days
 4. **Never log tokens** — they appear in full only at creation
 5. **Use HTTPS** — all API endpoints require it
 
+## Environment Variable
+
+When making API requests, store your token in the `OGARNIAI_API_TOKEN` environment variable:
+
+```bash
+export OGARNIAI_API_TOKEN="oai_your_token_here"
+```
+
+All code examples use this variable name for consistency with the MCP server.
+
 ## MCP Server
 
-An MCP server is available at `typescript/ogarniai-mcp-server/` providing all read-only endpoints as tools. See the README there for installation instructions with Claude Code, Cursor, and other MCP clients.
+An MCP server is available providing all read-only endpoints as tools. Install from GitHub: `github:IsidoreSoftware/ogarniai-mcp`
+
+See installation documentation at https://www.ogarni.ai/docs/mcp/instalacja for Claude Code, Cursor, and other MCP clients.
 
 ## Reference Files
 
